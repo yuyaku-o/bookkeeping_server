@@ -9,6 +9,13 @@ var userSchema = new Schema({
     username: {
         type: String
     },
+    password: {
+        type: String,
+        // 加密
+        // set(val) {
+        //     return require('bcrypt').hashSync(val, 10)
+        // }
+    },
     createtime: {
         type: String
     },

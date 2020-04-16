@@ -1,0 +1,9 @@
+// test.http
+@url=http://localhost:3000/api
+
+### 
+POST {{url}}/login
+
+{
+    "username": "user1",
+}
