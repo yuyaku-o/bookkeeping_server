@@ -9,7 +9,7 @@ var userSchema = new Schema({
     username: {
         type: String
     },
-    password: {
+    pwd: {
         type: String,
         // 加密
         // set(val) {
