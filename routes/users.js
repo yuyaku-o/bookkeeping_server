@@ -3,9 +3,21 @@ var router = express.Router();
 var mongoose = require('mongoose'); //引入对象
 var TodoModel = mongoose.model('user');//引入模型
 
+var request = require('../libs/request')()
+
 // 获取code
 router.post('/code', function (req, res, next) {
-    console.log(req.body)
+  (async function () {
+    let _res = await request.get('https://api.weixin.qq.com/sns/jscode2session?appid=' + req.body.appid + '&secret=' + req.body.secret + '&js_code=' + req.body.code + '&grant_type=authorization_code');
+    if (!_res.openid || !_res.session_key || _res.errcode) {
+      return {
+        result: -2,
+        errmsg: data.errmsg || '返回数据字段不完整'
+      }
+    } else {
+      return _res
+    }
+  })();
 });
 
 // 获取token
