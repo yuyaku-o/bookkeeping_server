@@ -6,7 +6,7 @@ const DB_URL = config.db.host + config.db.database;
 /**
  * 连接
  */
-mongoose.connect(DB_URL, { useNewUrlParser: true, useCreateIndex: true, });
+mongoose.connect(DB_URL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 /**
   * 连接成功
   */
